@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Run Bot Telegram Cuma Modal Html</title>
+    <title>Run Bot Telegram AI</title>
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -125,9 +125,14 @@
 </head>
 <body>
     <div class="container">
-        <h1>Aktifkan Bot Telegram AI</h1>
+        <h1> Aktifkan Bot Telegram AI</h1>
         
         <form id="botForm">
+            <div class="form-group">
+                <label for="botName">Nama Bot (opsional):</label>
+                <input type="text" id="botName" placeholder="Bot AI Saya">
+            </div>
+            
             <div class="form-group">
                 <label for="botToken">Telegram Bot Token:</label>
                 <input type="password" id="botToken" placeholder="1234567890:ABCdefGHIjklMNOpqrsTUVwxyz" required>
@@ -144,10 +149,12 @@
             <h3>📝 Cara Setup:</h3>
             <ol>
                 <li>Buat bot baru di <a href="https://t.me/BotFather" target="_blank">@BotFather</a> Telegram</li>
-                <li>Copy token bot dari BotFather</li>
+                <li>Ketik <code>/newbot</code> dan ikuti instruksi</li>
+                <li>Copy <strong>token lengkap</strong> dari BotFather (format: 123456789:ABC-DEF1234ghIkl-zyx57W2v1u123ew11)</li>
                 <li>Masukkan token di atas dan klik "Aktifkan Bot AI"</li>
                 <li>Bot AI siap menerima pesan! ✨</li>
             </ol>
+            <p><strong>Penting:</strong> Gunakan token ASLI dari @BotFather, bukan token contoh!</p>
             <p><strong>Note:</strong> OpenRoute AI sudah dikonfigurasi di backend, jadi hanya perlu token Telegram!</p>
         </div>
     </div>
@@ -159,6 +166,7 @@
             e.preventDefault();
             
             const botToken = document.getElementById('botToken').value.trim();
+            const botName = document.getElementById('botName').value.trim();
             const statusDiv = document.getElementById('status');
             const submitBtn = document.getElementById('activateBtn');
             
@@ -167,7 +175,7 @@
                 return;
             }
             
-            
+        
             submitBtn.disabled = true;
             submitBtn.textContent = 'Mengaktifkan...';
             showStatus('Sedang mengaktifkan bot AI...', 'info');
@@ -179,7 +187,8 @@
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        telegramBotToken: botToken
+                        telegramBotToken: botToken,
+                        botName: botName || 'AI Bot'
                     })
                 });
                 
@@ -217,7 +226,7 @@
                 if (statusDiv.classList.contains('success')) {
                     statusDiv.style.display = 'none';
                 }
-            }, 10000);
+            },10000);
         }
     </script>
 </body>
