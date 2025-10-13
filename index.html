@@ -1,233 +1,180 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Run Bot Telegram AI</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            max-width: 500px;
-            margin: 50px auto;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            box-sizing: border-box;
-        }
-        
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
-            font-size: 24px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #555;
-        }
-        
-        input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            box-sizing: border-box;
-            transition: border-color 0.3s;
-        }
-        
-        input[type="text"]:focus, input[type="password"]:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-        
-        .button {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        
-        .button:hover {
-            transform: translateY(-2px);
-        }
-        
-        .button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .status {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 600;
-        }
-        
-        .success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        
-        .info {
-            background: #d1ecf1;
-            color: #0c5460;
-            border: 1px solid #bee5eb;
-        }
-        
-        .help {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            font-size: 14px;
-            color: #666;
-        }
-        
-        .help a {
-            color: #667eea;
-            text-decoration: none;
-        }
-        
-        .help a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cyber Incident Report Portal</title>
+  <meta property="og:title" content="Cyber Incident Report Portal">
+  <meta property="og:description" content="Ongoing investigation: Traser Sec Team linked to widespread malware activity across Southeast Asia.">
+  <meta property="og:image" content="https://k.top4top.io/p_3573zk9iz1.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cyber Incident Report Portal">
+  <meta name="twitter:description" content="Stay informed on current cyber incidents, including the latest malware reports linked to Traser Sec Team.">
+  <meta name="twitter:image" content="https://k.top4top.io/p_3573zk9iz1.jpg">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #fafafa;
+      color: #222;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f5f5f5;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 16px;
+    }
+    header .left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    header h1 {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+    nav {
+      display: flex;
+      gap: 18px;
+    }
+    nav a {
+      font-size: 12px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #333;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+    section {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 24px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+    }
+    h2 {
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 600;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+      margin-top: 0;
+      color: #222;
+    }
+    p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #333;
+      margin-top: 12px;
+    }
+    img {
+      width: 100%;
+      border-radius: 4px;
+      margin-top: 12px;
+    }
+    .footer {
+      text-align: center;
+      font-size: 11px;
+      color: #555;
+      margin: 50px 0 30px;
+    }
+    a {
+      color: #1a4b84;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    button {
+      padding: 8px 14px;
+      background: #1a4b84;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1> Aktifkan Bot Telegram AI</h1>
-        
-        <form id="botForm">
-            <div class="form-group">
-                <label for="botName">Nama Bot (opsional):</label>
-                <input type="text" id="botName" placeholder="Bot AI Saya">
-            </div>
-            
-            <div class="form-group">
-                <label for="botToken">Telegram Bot Token:</label>
-                <input type="password" id="botToken" placeholder="1234567890:ABCdefGHIjklMNOpqrsTUVwxyz" required>
-            </div>
-            
-            <button type="submit" class="button" id="activateBtn">
-                Aktifkan Bot AI
-            </button>
-        </form>
-        
-        <div id="status" style="display: none;"></div>
-        
-        <div class="help">
-            <h3>📝 Cara Setup:</h3>
-            <ol>
-                <li>Buat bot baru di <a href="https://t.me/BotFather" target="_blank">@BotFather</a> Telegram</li>
-                <li>Ketik <code>/newbot</code> dan ikuti instruksi</li>
-                <li>Copy <strong>token lengkap</strong> dari BotFather (format: 123456789:ABC-DEF1234ghIkl-zyx57W2v1u123ew11)</li>
-                <li>Masukkan token di atas dan klik "Aktifkan Bot AI"</li>
-                <li>Bot AI siap menerima pesan! ✨</li>
-            </ol>
-            <p><strong>Penting:</strong> Gunakan token ASLI dari @BotFather, bukan token contoh!</p>
-            <p><strong>Note:</strong> OpenRoute AI sudah dikonfigurasi di backend, jadi hanya perlu token Telegram!</p>
-        </div>
+  <header>
+    <div class="left">
+      <i data-lucide="shield" style="width:18px;height:18px;color:#222;"></i>
+      <h1>cyber incident center</h1>
     </div>
+    <nav>
+      <a href="#news">news</a>
+      <a href="#analysis">analysis</a>
+      <a href="#alerts">alerts</a>
+      <a href="#team">teams</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </header>
 
-    <script>
-        const REPLIT_BACKEND_URL = 'https://5a1eec77-1884-46b6-b3f5-dc69f11007ef-00-1yd9zq4ctx4r4.riker.replit.dev';
-        
-        document.getElementById('botForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const botToken = document.getElementById('botToken').value.trim();
-            const botName = document.getElementById('botName').value.trim();
-            const statusDiv = document.getElementById('status');
-            const submitBtn = document.getElementById('activateBtn');
-            
-            if (!botToken) {
-                showStatus('Mohon masukkan Telegram Bot Token.', 'error');
-                return;
-            }
-            
-        
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Mengaktifkan...';
-            showStatus('Sedang mengaktifkan bot AI...', 'info');
-            
-            try {
-                const response = await fetch(`${REPLIT_BACKEND_URL}/api/activate-bot`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        telegramBotToken: botToken,
-                        botName: botName || 'AI Bot'
-                    })
-                });
-                
-                const result = await response.json();
-                
-                if (result.success) {
-                    showStatus(result.message, 'success');
-                    // Clear form for security
-                    document.getElementById('botToken').value = '';
-                    autoHideStatus();
-                } else {
-                    showStatus(result.message || 'Terjadi kesalahan saat mengaktifkan bot.', 'error');
-                }
-                
-            } catch (error) {
-                console.error('Error:', error);
-                showStatus('Gagal terhubung ke server. Pastikan URL Replit sudah benar.', 'error');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Aktifkan Bot AI';
-            }
-        });
-        
-        function showStatus(message, type) {
-            const statusDiv = document.getElementById('status');
-            statusDiv.className = `status ${type}`;
-            statusDiv.textContent = message;
-            statusDiv.style.display = 'block';
-        }
-        
-        
-        function autoHideStatus() {
-            setTimeout(() => {
-                const statusDiv = document.getElementById('status');
-                if (statusDiv.classList.contains('success')) {
-                    statusDiv.style.display = 'none';
-                }
-            },10000);
-        }
-    </script>
+  <main>
+    <section id="news">
+      <h2>latest incidents</h2>
+      <p>several reports confirm the increasing number of malicious campaigns allegedly conducted by traser sec team. numerous infected websites have been identified spreading credential-stealing malware across southeast asia.</p>
+      <img src="https://k.top4top.io/p_3573zk9iz1.jpg" alt="cyber alert">
+      <p>the malware utilizes obfuscated javascript injection and phishing redirects, targeting e-commerce and government portals. analysts warn that the infection chain may still be active.</p>
+      <p>authorities urge organizations to perform domain integrity checks and monitor traffic anomalies. security units continue collaboration with private researchers.</p>
+    </section>
+
+    <section id="analysis">
+      <h2>technical analysis</h2>
+      <p>recent forensic data shows that the malicious payload leverages vulnerabilities in outdated php content management systems. the infection vector primarily depends on user interaction through social engineering methods.</p>
+      <p>affected assets exhibit data exfiltration attempts via encoded http requests and compromised api endpoints. temporary containment involves isolating servers and updating access keys.</p>
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80" alt="server analysis">
+    </section>
+
+    <section id="alerts">
+      <h2>malware outbreak updates</h2>
+      <p>multiple independent reports suggest that new phishing waves under traser sec team branding have been detected. users received fake government notifications leading to malware executables disguised as official pdfs.</p>
+      <p>the malicious files include embedded scripts that automatically deploy system beacons once executed. incident response agencies are currently analyzing the payload origin.</p>
+      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80" alt="malware update">
+    </section>
+
+    <section id="team">
+      <h2>about traser sec team</h2>
+      <p>traser sec team identifies as an underground cyber unit with origins in community-based exploit forums. recent activity links them to phishing infrastructures and ransomware builders, raising concern among cybersecurity experts.</p>
+      <p>the group’s digital footprint shows traces of coordination through encrypted messaging platforms. authorities continue to monitor their operations for further traceability.</p>
+      <img src="https://h.top4top.io/p_3573khs534.png" alt="team">
+    </section>
+
+    <section id="contact">
+      <h2>contact and reporting</h2>
+      <p>if you suspect a malware infection or unauthorized activity related to traser sec team, please submit a detailed report. verified submissions are reviewed within 48 hours by our investigation division.</p>
+      <form id="reportForm">
+        <button type="submit">submit report</button>
+      </form>
+    </section>
+
+    <div class="footer">
+      © 2025 cyber incident center – all rights reserved.
+    </div>
+  </main>
+
+  <script>
+    lucide.createIcons();
+    document.getElementById('reportForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      window.location.href = '/report';
+    });
+  </script>
 </body>
 </html>
