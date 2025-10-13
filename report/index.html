@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Malware Incident Reporter</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#7c3aed}
+*{box-sizing:border-box;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,#071025 0%,#071423 100%);color:#e6eef8}
+.container{max-width:980px;margin:36px auto;padding:28px}
+.header{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#3b82f6);display:flex;align-items:center;justify-content:center;font-weight:700}
+.h1{font-size:20px;font-weight:600}
+.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);padding:22px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.input,textarea,button,select{width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;font-size:14px}
+textarea{min-height:140px;resize:vertical}
+.row{display:flex;gap:12px}
+.note{color:var(--muted);font-size:13px;margin-top:8px}
+.actions{display:flex;gap:12px;align-items:center;margin-top:12px}
+.btn{padding:10px 14px;border-radius:10px;border:none;background:var(--accent);color:white;font-weight:600;cursor:pointer}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04)}
+.success{padding:10px 12px;border-radius:8px;background:linear-gradient(90deg,#05203a,#073247);color:#8fe3c1;margin-top:12px}
+.small{font-size:12px;color:var(--muted)}
+.admin-panel{margin-top:18px}
+.table{width:100%;border-collapse:collapse;margin-top:12px}
+.table th,.table td{padding:10px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.03);font-size:13px}
+.meta{font-size:12px;color:var(--muted)}
+.search{display:flex;gap:8px;margin-bottom:12px}
+.empty{padding:18px;border-radius:10px;background:rgba(255,255,255,0.01);color:var(--muted)}
+.footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
+@media (max-width:720px){.form-grid{grid-template-columns:1fr}.logo{width:40px;height:40px}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<div class="brand">
+<div class="logo">Y</div>
+<div>
+<div class="h1">Malware Incident Reporter</div>
+<div class="small">Report suspicious websites quickly</div>
+</div>
+</div>
+<div>
+<button id="openAdmin" class="btn btn-admin">Open Admin</button>
+</div>
+</div>
+<div class="card" id="reportCard">
+<form id="reportForm">
+<div class="form-grid">
+<input id="email" class="input" type="email" placeholder="Your Gmail address" required>
+<input id="url" class="input" type="url" placeholder="Suspect website URL (https://...)" required>
+</div>
+<div style="margin-top:12px">
+<textarea id="message" placeholder="Describe what you observed (errors, popups, downloads, redirects)..." required></textarea>
+</div>
+<div class="actions">
+<button type="submit" class="btn">Send Report</button>
+<button type="button" id="clear" class="btn ghost">Clear</button>
+</div>
+<div class="note">Reports are encoded before sending. Only administrators can view decoded data.</div>
+<div id="status"></div>
+</form>
+</div>
+<div id="adminArea" class="admin-panel" style="display:none">
+<div class="card">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+<div>
+<div class="h1">Admin Dashboard</div>
+<div class="meta">Live view of incoming reports</div>
+</div>
+<button id="logout" class="btn btn-logout btn-ghost">Logout</button>
+</div>
+<div class="search">
+<input id="filter" class="input" placeholder="Filter by email, url, or text">
+<button id="refresh" class="btn">Refresh</button>
+</div>
+<div id="reportsContainer"></div>
+</div>
+</div>
+<div class="footer">Powered by Yan Official</div>
+</div>
+<script>
+const databaseURL = "https://yanofc-1ecd3-default-rtdb.asia-southeast1.firebasedatabase.app";
+function toHex(str){const a=[];for(let i=0;i<str.length;i++){a.push(str.charCodeAt(i).toString(16).padStart(2,'0'))}return a.join('')}
+function fromHex(hex){const a=[];for(let i=0;i<hex.length;i+=2){a.push(String.fromCharCode(parseInt(hex.substr(i,2),16)))}return a.join('')}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,8)}
+const form=document.getElementById('reportForm');const statusEl=document.getElementById('status');const clearBtn=document.getElementById('clear');form.addEventListener('submit',async e=>{e.preventDefault();statusEl.innerHTML='';const email=document.getElementById('email').value.trim();const url=document.getElementById('url').value.trim();const message=document.getElementById('message').value.trim();if(!email||!url||!message){statusEl.innerHTML='<div class="empty">Please complete all fields</div>';return}const payload={email:toHex(email),url:toHex(url),message:toHex(message),ts:Date.now()};try{const res=await fetch(`${databaseURL}/reports/${uid()}.json`,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});if(res.ok){form.reset();statusEl.innerHTML='<div class="success">Report submitted. Thank you.</div>'}else{statusEl.innerHTML='<div class="empty">Failed to send report</div>'}}catch(err){statusEl.innerHTML='<div class="empty">Network error</div>'}})
+clearBtn.addEventListener('click',()=>{form.reset();statusEl.innerHTML=''});
+const openAdmin=document.getElementById('openAdmin');const adminArea=document.getElementById('adminArea');const reportsContainer=document.getElementById('reportsContainer');const refreshBtn=document.getElementById('refresh');const filterInput=document.getElementById('filter');const logoutBtn=document.getElementById('logout');let authed=false;openAdmin.addEventListener('click',async ()=>{if(!authed){const key=prompt('Enter admin key');if(!key) return;if(key==='yanadmin'){authed=true;adminArea.style.display='block';document.getElementById('reportCard').style.display='none';loadReports()}else{alert('Invalid key')}}});logoutBtn.addEventListener('click',()=>{authed=false;adminArea.style.display='none';document.getElementById('reportCard').style.display='block';reportsContainer.innerHTML=''});
+async function loadReports(){reportsContainer.innerHTML='<div class="empty">Loading...</div>';try{const res=await fetch(`${databaseURL}/reports.json`);if(!res.ok){reportsContainer.innerHTML='<div class="empty">Failed to fetch</div>';return}const data=await res.json();if(!data){reportsContainer.innerHTML='<div class="empty">No reports yet</div>';return}const rows=Object.entries(data).map(([k,v])=>({id:k,email:fromHex(v.email||''),url:fromHex(v.url||''),message:fromHex(v.message||''),ts:v.ts||0})).sort((a,b)=>b.ts-a.ts);renderTable(rows)}catch(e){reportsContainer.innerHTML='<div class="empty">Network error</div>'}}
+function renderTable(rows){const q=filterInput.value.trim().toLowerCase();const filtered=rows.filter(r=>r.email.toLowerCase().includes(q)||r.url.toLowerCase().includes(q)||r.message.toLowerCase().includes(q));if(!filtered.length){reportsContainer.innerHTML='<div class="empty">No matching reports</div>';return}let html='<table class="table"><thead><tr><th>Email</th><th>URL</th><th>Message</th><th>When</th></tr></thead><tbody>';for(const r of filtered){const d=new Date(r.ts);html+=`<tr><td>${escapeHtml(r.email)}</td><td><a target="_blank" rel="noopener noreferrer" href="${escapeHtml(r.url)}">${escapeHtml(r.url)}</a></td><td style="max-width:360px;white-space:pre-wrap">${escapeHtml(r.message)}</td><td class="meta">${d.toLocaleString()}</td></tr>`}html+='</tbody></table>';reportsContainer.innerHTML=html}
+refreshBtn.addEventListener('click',()=>{if(authed) loadReports()});filterInput.addEventListener('input',()=>{if(authed) loadReports()});
+function escapeHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+if(new URLSearchParams(location.search).get('admin')==='1'){openAdmin.click()}
+</script>
+</body>
+</html>
