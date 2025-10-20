@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Badan Intelijen Siber Nasional</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a0a;
+  color: #ccc;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  animation: fadeIn 1.8s ease-in-out;
+}
+
+.logo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(100%) brightness(1.1);
+  box-shadow: 0 0 25px rgba(0,255,255,0.2);
+  margin-bottom: 18px;
+}
+
+h1 {
+  font-weight: 500;
+  color: #00e0ff;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.sub {
+  color: #999;
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  margin-top: 4px;
+}
+
+.line {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #00ffff, transparent);
+  margin: 18px auto;
+}
+
+.text {
+  color: #aaa;
+  font-size: 11px;
+  line-height: 1.6;
+  text-align: justify;
+  border-left: 2px solid #00ffff33;
+  padding-left: 12px;
+}
+
+.sec {
+  color: #00ffff;
+  font-size: 10px;
+  text-transform: uppercase;
+  margin-top: 16px;
+  letter-spacing: 1px;
+}
+
+footer {
+  position: absolute;
+  bottom: 8px;
+  font-size: 10px;
+  color: #444;
+  letter-spacing: 1px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scan {
+  0% {transform: translateY(-100%);}
+  100% {transform: translateY(100%);}
+}
+
+.scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(0,255,255,0.1);
+  animation: scan 4s linear infinite;
+}
+</style>
+</head>
+<body>
+<div class="scanline"></div>
+<div class="container">
+  <img src="images/e90c3fb493238578bc8ccfe904ec328e.jpg" class="logo" alt="Intelijen Logo">
+  <h1>Badan Intelijen Siber Nasional</h1>
+  <div class="sub">Direktorat Keamanan Digital & Forensik Siber</div>
+  <div class="line"></div>
+  <div class="text">
+    Portal ini dirancang untuk mendeteksi, memantau, dan melindungi pelapor terhadap situs web yang terindikasi malware, phishing, maupun serangan siber lintas jaringan.
+    <br><br>
+    Sistem <b>BIS Threat Watch</b> secara otomatis melakukan pemindaian dan pelacakan terhadap aktivitas abnormal yang terhubung dengan domain pemerintah, swasta, maupun lembaga pertahanan nasional.
+    <br><br>
+    Setiap akses dicatat dan diawasi oleh jaringan <b>Cyber Surveillance Division</b> — akses tanpa izin akan segera ditindaklanjuti.
+  </div>
+  <div class="sec">gov.infy.uk | internal security access</div>
+</div>
+<footer>© 2025 Badan Intelijen Siber Nasional — Confidential Access</footer>
+</body>
+</html>
