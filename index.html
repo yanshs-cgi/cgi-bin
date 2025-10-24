@@ -1,303 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cyber Incident Report Portal</title>
-  <meta property="og:title" content="Cyber Incident Report Portal">
-  <meta property="og:description" content="Ongoing investigation: Traser Sec Team linked to widespread malware activity across Southeast Asia.">
-  <meta property="og:image" content="https://k.top4top.io/p_3573zk9iz1.jpg">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yourdomain.com">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Cyber Incident Report Portal">
-  <meta name="twitter:description" content="Stay informed on current cyber incidents, including the latest malware reports linked to Traser Sec Team.">
-  <meta name="twitter:image" content="https://k.top4top.io/p_3573zk9iz1.jpg">
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #fafafa;
-      color: #222;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #f5f5f5;
-      border-bottom: 1px solid #ddd;
-      padding: 10px 16px;
-    }
-    header .left {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    header h1 {
-      font-size: 13px;
-      font-weight: 600;
-      text-transform: uppercase;
-      margin: 0;
-      letter-spacing: 0.5px;
-    }
-    nav {
-      display: flex;
-      gap: 18px;
-    }
-    nav a {
-      font-size: 12px;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: #333;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 16px;
-    }
-    section {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      padding: 24px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      margin-bottom: 30px;
-    }
-    h2 {
-      font-size: 14px;
-      text-transform: uppercase;
-      font-weight: 600;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 8px;
-      margin-top: 0;
-      color: #222;
-    }
-    p {
-      font-size: 13px;
-      line-height: 1.6;
-      color: #333;
-      margin-top: 12px;
-    }
-    img {
-      width: 100%;
-      border-radius: 4px;
-      margin-top: 12px;
-    }
-    .footer {
-      text-align: center;
-      font-size: 11px;
-      color: #555;
-      margin: 50px 0 30px;
-    }
-    a {
-      color: #1a4b84;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    button {
-      padding: 8px 14px;
-      background: #1a4b84;
-      color: black;
-      border: none;
-      border-radius: 4px;
-      font-size: 13px;
-      cursor: pointer;
-    }
-     .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(8px);
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: fadeIn 0.6s ease;
-  }
-
-  
-  .alert-box {
-    background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
-    border: 1px solid #333;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 380px;
-    animation: popUp 0.5s ease;
-    overflow: hidden;
-    position: relative;
-  }
-
-  
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 12px;
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    color: white;
-    font-size: 20px;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  .close-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-  }
-
-  
-  .alert-img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-  }
-  
-  .alert-content {
-    padding: 20px;
-    text-align: center;
-  }
-
-  .alert-content h2 {
-    margin: 10px 0;
-    font-size: 22px;
-    color: cyan;
-  }
-
-  .alert-content p {
-    color: #ccc;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .alert-content button {
-    margin-top: 15px;
-    background: cyan;
-    border: none;
-    color: black;
-    font-weight: 600;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  .alert-content button:hover {
-    background: #00ffffb8;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes popUp {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cyber Incident Report Portal</title>
+<meta property="og:title" content="Cyber Incident Report Portal">
+<meta property="og:description" content="Ongoing investigation: Traser Sec Team linked to widespread malware activity across Southeast Asia.">
+<meta property="og:image" content="https://k.top4top.io/p_3573zk9iz1.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yourdomain.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cyber Incident Report Portal">
+<meta name="twitter:description" content="Stay informed on current cyber incidents, including the latest malware reports linked to Traser Sec Team.">
+<meta name="twitter:image" content="https://k.top4top.io/p_3573zk9iz1.jpg">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:#fafafa;color:#222}
+header{display:flex;align-items:center;justify-content:space-between;background:#f5f5f5;border-bottom:1px solid #ddd;padding:10px 16px}
+header .left{display:flex;align-items:center;gap:8px}
+header h1{font-size:13px;font-weight:600;text-transform:uppercase;margin:0;letter-spacing:0.5px}
+nav{display:flex;gap:18px}
+nav a{font-size:12px;text-transform:uppercase;text-decoration:none;color:#333}
+nav a:hover{text-decoration:underline}
+main{max-width:900px;margin:40px auto;padding:0 16px}
+section{background:white;border:1px solid #ddd;border-radius:6px;padding:24px;box-shadow:0 2px 5px rgba(0,0,0,0.05);margin-bottom:30px}
+h2{font-size:14px;text-transform:uppercase;font-weight:600;border-bottom:1px solid #ddd;padding-bottom:8px;margin-top:0;color:#222}
+p{font-size:13px;line-height:1.6;color:#333;margin-top:12px}
+img{width:100%;border-radius:4px;margin-top:12px}
+.footer{text-align:center;font-size:11px;color:#555;margin:50px 0 30px}
+a{color:#1a4b84;text-decoration:none}
+a:hover{text-decoration:underline}
+button{padding:8px 14px;background:#000;color:#fff;border:none;border-radius:4px;font-size:13px;cursor:pointer;transition:0.3s}
+button:hover{background:#222}
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;backdrop-filter:blur(8px);background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;animation:fadeIn 0.6s ease;z-index:9999}
+.alert-box{background:linear-gradient(145deg,#1a1a1a,#2a2a2a);border:1px solid #333;border-radius:20px;width:90%;max-width:380px;animation:popUp 0.5s ease;overflow:hidden;position:relative}
+.close-btn{position:absolute;top:10px;right:12px;background:#000;border:none;color:#fff;font-size:20px;border-radius:50%;width:30px;height:30px;cursor:pointer;transition:0.3s;z-index:10}
+.close-btn:hover{background:#222}
+.alert-img{width:100%;height:180px;object-fit:cover;border-top-left-radius:20px;border-top-right-radius:20px}
+.alert-content{padding:20px;text-align:center}
+.alert-content h2{margin:10px 0;font-size:22px;color:cyan}
+.alert-content p{color:#ccc;font-size:14px;line-height:1.5}
+.alert-content button{margin-top:15px;background:#000;border:none;color:#fff;font-weight:600;padding:10px 20px;border-radius:10px;cursor:pointer;transition:0.3s}
+.alert-content button:hover{background:#222}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes popUp{from{transform:scale(0.8);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes fadeOut{from{opacity:1;transform:scale(1)}to{opacity:0;transform:scale(0.8)}}
+</style>
 </head>
 <body>
-  <header>
-    <div class="left">
-      <i data-lucide="shield" style="width:18px;height:18px;color:#222;"></i>
-      <h1>cyber incident center</h1>
-    </div>
-    <nav>
-      <a href="#news">news</a>
-      <a href="#analysis">analysis</a>
-      <a href="#alerts">alerts</a>
-      <a href="#team">teams</a>
-      <a href="#contact">contact</a>
-    </nav>
-  </header>
+<header>
+<div class="left"><i data-lucide="shield" style="width:18px;height:18px;color:#222;"></i><h1>cyber incident center</h1></div>
+<nav><a href="#news">news</a><a href="#analysis">analysis</a><a href="#alerts">alerts</a><a href="#team">teams</a><a href="#contact">contact</a></nav>
+</header>
 
-  <main>
-    <div class="overlay" id="fakeAd">
-  <div class="alert-box">
-    <button class="close-btn" onclick="closeAd()">✕</button>
-    <img src="https://g.top4top.io/p_3584pcl6z1.gif" class="alert-img" alt="Iklan Keren">
-    <div class="alert-content">
-      <h2>System</h2>
-      <p>Perlindungan anti <b>Pishing</b> Web ini di buat untuk melindungi insiden malware atau pishing silahkan report di bawah !</p>
-      <button onclick="alert('scrol bawah!')">Lihat Sekarang</button>
-    </div>
-  </div>
+<main>
+<div class="overlay" id="fakeAd">
+<div class="alert-box">
+<button class="close-btn" onclick="closeAd()">✕</button>
+<img src="https://g.top4top.io/p_3584pcl6z1.gif" class="alert-img" alt="Iklan Keren">
+<div class="alert-content">
+<h2>System</h2>
+<p>Perlindungan anti <b>Pishing</b> Web ini di buat untuk melindungi insiden malware atau pishing silahkan report di bawah !</p>
+<button onclick="scrollToReport()">Lihat Sekarang</button>
+</div>
+</div>
 </div>
 
+<section id="news">
+<h2>latest incidents</h2>
+<p>several reports confirm the increasing number of malicious campaigns allegedly conducted by traser sec team. numerous infected websites have been identified spreading credential-stealing malware across southeast asia.</p>
+<img src="https://k.top4top.io/p_3573zk9iz1.jpg" alt="cyber alert">
+<p>the malware utilizes obfuscated javascript injection and phishing redirects, targeting e-commerce and government portals. analysts warn that the infection chain may still be active.</p>
+<p>authorities urge organizations to perform domain integrity checks and monitor traffic anomalies. security units continue collaboration with private researchers.</p>
+</section>
+
+<section id="analysis">
+<h2>technical analysis</h2>
+<p>recent forensic data shows that the malicious payload leverages vulnerabilities in outdated php content management systems. the infection vector primarily depends on user interaction through social engineering methods.</p>
+<p>affected assets exhibit data exfiltration attempts via encoded http requests and compromised api endpoints. temporary containment involves isolating servers and updating access keys.</p>
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80" alt="server analysis">
+</section>
+
+<section id="alerts">
+<h2>malware outbreak updates</h2>
+<p>multiple independent reports suggest that new phishing waves under traser sec team branding have been detected. users received fake government notifications leading to malware executables disguised as official pdfs.</p>
+<p>the malicious files include embedded scripts that automatically deploy system beacons once executed. incident response agencies are currently analyzing the payload origin.</p>
+<img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80" alt="malware update">
+</section>
+
+<section id="team">
+<h2>about traser sec team</h2>
+<p>traser sec team identifies as an underground cyber unit with origins in community-based exploit forums. recent activity links them to phishing infrastructures and ransomware builders, raising concern among cybersecurity experts.</p>
+<p>the group’s digital footprint shows traces of coordination through encrypted messaging platforms. authorities continue to monitor their operations for further traceability.</p>
+<img src="https://h.top4top.io/p_3573khs534.png" alt="team">
+</section>
+
+<section id="contact">
+<h2>contact and reporting</h2>
+<p>if you suspect a malware infection or unauthorized activity related to traser sec team, please submit a detailed report. verified submissions are reviewed within 48 hours by our investigation division.</p>
+<form id="reportForm">
+<button type="submit">Submit Report</button>
+</form>
+</section>
+
+<div class="footer">© 2025 cyber incident center – all rights reserved.</div>
+</main>
+
 <script>
-  function closeAd() {
-    const ad = document.getElementById("fakeAd");
-    ad.style.animation = "fadeOut 0.4s forwards";
-    setTimeout(() => ad.remove(), 400);
-  }
+lucide.createIcons()
+function closeAd(){const ad=document.getElementById("fakeAd");ad.style.animation="fadeOut 0.4s forwards";setTimeout(()=>ad.remove(),400)}
+function scrollToReport(){closeAd();setTimeout(()=>{document.getElementById("contact").scrollIntoView({behavior:"smooth"})},500)}
+document.getElementById('reportForm').addEventListener('submit',function(e){e.preventDefault();alert('Report submitted successfully!')})
 </script>
-
-<style>
-  @keyframes fadeOut {
-    from { opacity: 1; transform: scale(1); }
-    to { opacity: 0; transform: scale(0.8); }
-  }
-</style>
-    <section id="news">
-      <h2>latest incidents</h2>
-      <p>several reports confirm the increasing number of malicious campaigns allegedly conducted by traser sec team. numerous infected websites have been identified spreading credential-stealing malware across southeast asia.</p>
-      <img src="https://k.top4top.io/p_3573zk9iz1.jpg" alt="cyber alert">
-      <p>the malware utilizes obfuscated javascript injection and phishing redirects, targeting e-commerce and government portals. analysts warn that the infection chain may still be active.</p>
-      <p>authorities urge organizations to perform domain integrity checks and monitor traffic anomalies. security units continue collaboration with private researchers.</p>
-    </section>
-
-    <section id="analysis">
-      <h2>technical analysis</h2>
-      <p>recent forensic data shows that the malicious payload leverages vulnerabilities in outdated php content management systems. the infection vector primarily depends on user interaction through social engineering methods.</p>
-      <p>affected assets exhibit data exfiltration attempts via encoded http requests and compromised api endpoints. temporary containment involves isolating servers and updating access keys.</p>
-      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80" alt="server analysis">
-    </section>
-
-    <section id="alerts">
-      <h2>malware outbreak updates</h2>
-      <p>multiple independent reports suggest that new phishing waves under traser sec team branding have been detected. users received fake government notifications leading to malware executables disguised as official pdfs.</p>
-      <p>the malicious files include embedded scripts that automatically deploy system beacons once executed. incident response agencies are currently analyzing the payload origin.</p>
-      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80" alt="malware update">
-    </section>
-
-    <section id="team">
-      <h2>about traser sec team</h2>
-      <p>traser sec team identifies as an underground cyber unit with origins in community-based exploit forums. recent activity links them to phishing infrastructures and ransomware builders, raising concern among cybersecurity experts.</p>
-      <p>the group’s digital footprint shows traces of coordination through encrypted messaging platforms. authorities continue to monitor their operations for further traceability.</p>
-      <img src="https://h.top4top.io/p_3573khs534.png" alt="team">
-    </section>
-
-    <section id="contact">
-      <h2>contact and reporting</h2>
-      <p>if you suspect a malware infection or unauthorized activity related to traser sec team, please submit a detailed report. verified submissions are reviewed within 48 hours by our investigation division.</p>
-      <form id="reportForm">
-        <button type="submit">submit report</button>
-      </form>
-    </section>
-
-    <div class="footer">
-      © 2025 cyber incident center – all rights reserved.
-    </div>
-  </main>
-
-  <script>
-    lucide.createIcons();
-    document.getElementById('reportForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      window.location.href = '/report';
-    });
-  </script>
 </body>
 </html>
