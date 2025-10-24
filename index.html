@@ -109,6 +109,103 @@
       font-size: 13px;
       cursor: pointer;
     }
+     .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.6s ease;
+  }
+
+  
+  .alert-box {
+    background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+    border: 1px solid #333;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 380px;
+    animation: popUp 0.5s ease;
+    overflow: hidden;
+    position: relative;
+  }
+
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  
+  .alert-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  
+  .alert-content {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .alert-content h2 {
+    margin: 10px 0;
+    font-size: 22px;
+    color: cyan;
+  }
+
+  .alert-content p {
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .alert-content button {
+    margin-top: 15px;
+    background: cyan;
+    border: none;
+    color: black;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .alert-content button:hover {
+    background: #00ffffb8;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes popUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
   </style>
 </head>
 <body>
@@ -127,6 +224,33 @@
   </header>
 
   <main>
+    <div class="overlay" id="fakeAd">
+  <div class="alert-box">
+    <button class="close-btn" onclick="closeAd()">✕</button>
+    <img src="https://cdn.pixabay.com/photo/2017/03/02/16/32/sale-2116181_1280.jpg" class="alert-img" alt="Iklan Keren">
+    <div class="alert-content">
+      <h2>Promo Spesial Hari Ini!</h2>
+      <p>Dapatkan diskon hingga <b>70%</b> untuk semua produk elektronik.  
+      Penawaran terbatas hanya hari ini!</p>
+      <button onclick="alert('Kamu tertipu! Ini cuma iklan palsu 😆')">Lihat Sekarang</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function closeAd() {
+    const ad = document.getElementById("fakeAd");
+    ad.style.animation = "fadeOut 0.4s forwards";
+    setTimeout(() => ad.remove(), 400);
+  }
+</script>
+
+<style>
+  @keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.8); }
+  }
+</style>
     <section id="news">
       <h2>latest incidents</h2>
       <p>several reports confirm the increasing number of malicious campaigns allegedly conducted by traser sec team. numerous infected websites have been identified spreading credential-stealing malware across southeast asia.</p>
